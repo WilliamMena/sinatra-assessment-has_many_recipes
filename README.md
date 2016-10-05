@@ -21,19 +21,26 @@ has_many_recipes
 │   ├── controllers
 │   │   └── application_controller.rb
 │   ├── models
-│   │   ├── tweet.rb
-│   │   └── user.rb
-│   └── views
-│       ├── index.erb
-│       ├── layout.erb
-│       ├── tweets
-│       │   ├── create_tweet.erb
-│       │   ├── edit_tweet.erb
-│       │   ├── show_tweet.erb
-│       │   └── tweets.erb
-│       └── users
-│           ├── create_user.erb
-│           └── login.erb
+│   │   ├── recipe.rb
+│   │   ├── user.rb
+│   │   └── category.rb
+│   ├── views
+│   │   ├── index.erb
+│   │   ├── layout.erb
+│   │   ├── recipes
+│   │   │   ├── create_recipe.erb
+│   │   │   ├── edit_recipe.erb
+│   │   │   ├── show_recipe.erb
+│   │   │   └── recipes.erb
+│   │   ├── users
+│   │   │   ├── create_user.erb
+│   │   │   ├── login.erb
+│   │   │   └── users.erb
+│   │   └── category
+│   │       ├── categories.erb
+│   │       └── category.erb
+│   └── helper
+│       └── helper.rb
 ├── config
 │   └── environment.rb
 ├── config.ru
@@ -41,9 +48,13 @@ has_many_recipes
 │   ├── development.sqlite
 │   ├── migrate
 │   │   ├── 20151124191332_create_users.rb
-│   │   └── 20151124191334_create_tweets.rb
+│   │   ├── 20151124191334_create_recipes.rb
+│   │   └── 20151124191336_create_categories.rb
+│   │   └── 20151124191336_create_user_recipe_join.rb
+│   │   └── 20151124191336_create_recipe_category_join.rb
 │   ├── schema.rb
-│   └── test.sqlite
+│   ├── test.sqlite
+│   └── seed.rb
 └── spec
     ├── controllers
     │   └── application_controller_spec.rb
