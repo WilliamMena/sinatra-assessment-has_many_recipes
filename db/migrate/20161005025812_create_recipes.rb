@@ -6,6 +6,8 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :serving_size
       t.string :cook_time
       t.text :directions
+      t.integer :user_id
+      t.integer :category_id
     end
   end
 end
