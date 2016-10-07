@@ -27,6 +27,26 @@ class ApplicationController < Sinatra::Base
     redirect to '/home'
   end
 
+  get '/login' do
+    if Helper.logged_in?(session)
+      redirect to '/home'
+    else
+      erb :'/user/login'
+    end
+  end
+
+  post '/login' do
+    user = User.find_by(username: params["username"])
+    binding.pry
+    if user && user.authenticate(params["password"])
+      session[:user_id] = user.id
+      redirect to '/home'
+    else
+      #create alert that says, that username & password combination doesn't exists
+      redirect to '/login'
+    end
+  end
+
 #need to create the log in and post log in route as well
 
   get '/home' do
