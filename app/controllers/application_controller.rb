@@ -35,6 +35,11 @@ class ApplicationController < Sinatra::Base
     erb :'/category/category'
   end
 
+  get '/recipes' do
+    @recipes = Recipe.all
+    erb :'/recipe/recipes'
+  end
+
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
     erb :'/recipe/show'
