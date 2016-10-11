@@ -7,7 +7,7 @@ class SessionController < ApplicationController
     if Helper.logged_in?(session)
       redirect to '/home'
     else
-      erb :'/user/create_user'
+      erb :'/session/create_user'
     end
   end
 
@@ -29,7 +29,7 @@ class SessionController < ApplicationController
     if Helper.logged_in?(session)
       redirect to '/home'
     else
-      erb :'/user/login'
+      erb :'/session/login'
     end
   end
 
@@ -45,7 +45,7 @@ class SessionController < ApplicationController
   end
 
   get '/logout' do
-    erb :'/user/logout'
+    erb :'/session/logout'
   end
 
   post '/logout' do
