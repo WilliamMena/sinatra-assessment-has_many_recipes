@@ -1,0 +1,32 @@
+<h1>Create New</h1>
+
+<form action="/recipes" method="POST" id="new">
+  Recipe Name: <input type="text" name="name" placeholder="Fruit Salad" autofocus>
+  <br></br>
+  Ingredients: <textarea rows="1" cols="40" name="ingredients" placeholder="Apple, Banana"></textarea>
+                <font color="grey">Each ingredient seperated by a comma ( , )</font>
+  <br></br>
+
+  Serving Size: <input type="integer" name="serving_size" placeholder="2">
+  <br></br>
+
+  Cook Time: <input type="text" name="cook_time" placeholder="About 15 minutes">
+  <br></br>
+
+  Directions: <textarea rows="4" cols="50" name="directions" form="new" placeholder="Cut them all with a samarai sword like in fruit ninja and a giant bowl below to catch the falling fruit"></textarea>
+  <br></br>
+
+  Choose a Category:
+  <% Category.all.each do |c| %> 
+    <%= c.name %> <input type="checkbox" name="category" value="<%= c.id %>">
+  <% end %>
+
+  <br></br>
+  Or create new category: <input type="text" name="new_category" placeholder="Midnight Breakfast"> <b><font size="2" color="grey">Don't fill if using existing category</font></b>
+
+
+
+
+  <br></br>
+  <input type="submit" value="Create New Recipe">
+</form>
