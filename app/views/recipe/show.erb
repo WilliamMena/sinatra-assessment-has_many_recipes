@@ -1,0 +1,17 @@
+<h1><%= @recipe.name %></h1>
+<p>Recipe by <a href="/users/<%= @recipe.user.slug %>"><%= @recipe.user.username %></a></p>
+
+<h3>Serving Size</h3> <%= @recipe.serving_size %>
+
+<h3>Cook Time</h3> <%= @recipe.cook_time %>
+
+<h3>Ingredients</h3>
+<ul>
+ <% @recipe.ingredients.split(",").each do |t| %>
+  <li><%= t.strip.capitalize %></li>
+<% end %>
+</ul>
+
+<h3>Directions</h3>
+  <p><%= @recipe.directions %></p>
+
