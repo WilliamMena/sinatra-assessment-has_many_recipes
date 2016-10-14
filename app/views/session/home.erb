@@ -1,1 +1,21 @@
 <h1>Welcome <%= @user.username.capitalize %></h1>
+
+
+<div id="random_recipe">
+<h3>Random Recipe</h3>
+
+<h3><a href="/recipes/<%= @recipe.id %>"><%= @recipe.name %></a></h3>
+
+
+Category: <a href="/categories/<%= @recipe.category.name %>"><%= @recipe.category.name %></a>
+<br>
+<b>Ingredients:</b> <%= @recipe.ingredients[0..26] %>.....
+<br>
+<b>Directions:</b> <%= @recipe.directions[0..30] %>.....
+<br>
+<sub>Click the name of the recipe for the full recipe</sub>
+</div>
+
+<section id="home_text">
+<p>Listicle mlkshk tbh raw denim kickstarter, cronut umami retro. Tacos VHS flannel, cardigan you probably haven't heard of them fanny pack poke sriracha asymmetrical lomo godard jianbing narwhal letterpress +1. Helvetica offal everyday carry, raclette YOLO pabst af edison bulb four loko marfa biodiesel man braid fap 8-bit locavore. Fanny pack gastropub bushwick, street art celiac wolf intelligentsia meditation XOXO. Banh mi mumblecore offal tacos, edison bulb wayfarers listicle lumbersexual pabst tbh. Forage bespoke mlkshk neutra, biodiesel paleo vegan celiac skateboard master cleanse cred art party chicharrones helvetica. Gochujang neutra pabst twee flexitarian, tofu af sriracha gastropub pok pok cold-pressed austin pop-up.</p>
+</section>
