@@ -81,6 +81,12 @@ class ApplicationController < Sinatra::Base
     erb :'/recipe/show'
   end
 
+  post '/follow' do
+    following = User.find_by_id(params["follow_id"])
+
+    redirect to "/users/#{following.slug}"
+  end
+
 
 
 end
