@@ -1,9 +1,18 @@
 <h1><%= @user.username %>'s Profile</h1>
 
-<form method="POST" action="/follow">
-  <input type="hidden" value="<%= @user.id %>" name="follow_id">
-  <input type="submit" value="Follow">
-</form>
+<% if Helper.current_user(session) == @user %>
+  <p>Your Public Page</p>
+<% elsif !Helper.current_user(session).following.include?(@user) %>
+  <form method="POST" action="/follow">
+    <input type="hidden" value="<%= @user.id %>" name="follow_id">
+    <input type="submit" value="Follow">
+  </form>
+<% else %>
+  <form method="POST" action="/unfollow">
+    <input type="hidden" value="<%= @user.id %>" name="unfollow_id">
+    <input type="submit" value="Unfollow">
+  </form>
+<% end %>
 
 <p><b><%= @user.username %>'s Recipes</b></p>
 <ul>

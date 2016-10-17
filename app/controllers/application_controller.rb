@@ -82,10 +82,20 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/follow' do
-    following = User.find_by_id(params["follow_id"])
+    f = User.find_by_id(params["follow_id"])
+    user = User.find_by_id(session["user_id"])
+    f.followers << user
+    Follower.last.save
 
-    redirect to "/users/#{following.slug}"
+    redirect to "/users/#{f.slug}"
   end
+
+
+
+
+
+
+
 
 
 

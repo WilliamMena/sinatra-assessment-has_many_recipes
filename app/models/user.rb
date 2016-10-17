@@ -2,8 +2,10 @@ class User < ActiveRecord::Base
   
   has_secure_password
 
-  has_many :following, :class_name => "Follower"
-  has_many :followers, :through => :following, :source => :follower
+  has_many :followers_association, :class_name => "Follower"
+  has_many :followers, :through => :followers_association, :source => :follower
+  has_many :following_association, :class_name => "Follower", :foreign_key => "follower_id"
+  has_many :following, :through => :following_association, :source => :user
 
   has_many :recipes
   has_many :categories, through: :recipes

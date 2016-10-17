@@ -1,5 +1,6 @@
 User.create(username: "william", password: "password", email: "william@test.com", bio: "test test 1 2 3")
 User.create(username: "teddy", password: "password1", email: "teddy@test.com", bio: "one more test")
+User.create(username: "test", password: "test", email: "test@test.com", bio: "one test on top of another test")
 Category.create(name: "Breakfast")
 Category.create(name: "Lunch")
 r = Recipe.new(name: "Healthy Serving of Bacon", ingredients: "Bacon", serving_size: 1, cook_time: "About 15-20 min", directions: "Cook, then stuff your face")
