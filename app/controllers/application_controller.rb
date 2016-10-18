@@ -1,6 +1,5 @@
 require './config/environment'
 
-
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -8,9 +7,8 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "recipe_secret"
+    register Sinatra::Flash
   end
-
-  use Rack::Flash
 
   get '/' do 
     erb :index
@@ -101,13 +99,6 @@ class ApplicationController < Sinatra::Base
 
     redirect to "/users/#{host.slug}"
   end
-
-
-
-
-
-
-
 
 
 

@@ -18,3 +18,24 @@ Category: <a href="/categories/<%= @recipe.category.name %>"><%= @recipe.categor
 <br>
 <sub>Click the name of the recipe for the full recipe</sub>
 </div>
+
+<div id="friend_list">
+  <h3>Follow List</h3>
+
+  <% if @user.following.empty? %>
+    "You aren't following anyone at the moment"
+
+  <% else %>
+    <ul>
+    <% @user.following.each do |f| %>
+    <li><a href="/users/<%= f.slug %>"><%= f.username %></a></li>
+
+    <% end %>
+    </ul>
+  <% end %>
+
+
+
+
+
+</div>
