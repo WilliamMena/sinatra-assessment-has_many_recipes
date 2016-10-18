@@ -85,12 +85,21 @@ class ApplicationController < Sinatra::Base
 
   post '/follow' do
     f = User.find_by_id(params["follow_id"])
-    user = User.find_by_id(session["user_id"])
-    f.followers << user
+    user = Helper.current_user(session)
+    user.following << f
     Follower.last.save
     flash[:message] = "You're now following #{f.username}"
 
     redirect to "/users/#{f.slug}"
+  end
+
+  post '/unfollow' do
+    host = User.find_by_id(params["unfollow_id"])
+    follower = Helper.current_user(session)
+    Follower.find_by(user_id: host.id, follower_id: follower.id).delete
+    flash[:message] = "You've unfollowed #{host.username}"
+
+    redirect to "/users/#{host.slug}"
   end
 
 
