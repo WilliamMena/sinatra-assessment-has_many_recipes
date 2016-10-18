@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1>Log into my recipe app</h1>
 
 <form method="POST" action="/login">

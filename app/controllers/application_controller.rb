@@ -1,5 +1,6 @@
 require './config/environment'
 
+
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -9,6 +10,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "recipe_secret"
   end
 
+  use Rack::Flash
 
   get '/' do 
     erb :index
@@ -86,6 +88,7 @@ class ApplicationController < Sinatra::Base
     user = User.find_by_id(session["user_id"])
     f.followers << user
     Follower.last.save
+    flash[:message] = "You're now following #{f.username}"
 
     redirect to "/users/#{f.slug}"
   end

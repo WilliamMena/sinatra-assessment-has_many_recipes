@@ -1,5 +1,9 @@
 <h1><%= @user.username %>'s Profile</h1>
 
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <% if Helper.current_user(session) == @user %>
   <p>Your Public Page</p>
 <% elsif !Helper.current_user(session).following.include?(@user) %>
