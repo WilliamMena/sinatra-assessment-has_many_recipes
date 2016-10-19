@@ -3,7 +3,7 @@ require './config/environment'
 class SessionController < ApplicationController
 
   get '/signup' do
-    if Helper.logged_in?(session)
+    if logged_in?
       redirect to '/home'
     else
       erb :'/session/create_user'
@@ -25,7 +25,7 @@ class SessionController < ApplicationController
   end
 
   get '/login' do
-    if Helper.logged_in?(session)
+    if logged_in?
       redirect to '/home'
     else
       erb :'/session/login'
@@ -39,7 +39,7 @@ class SessionController < ApplicationController
       redirect to '/home'
     else
       # "that username & password combination doesn't exist"
-      # flash[:message] = "That username and password combination doesn't exist."
+      flash[:message] = "That username and password combination doesn't exist."
       redirect to '/login'
     end
   end

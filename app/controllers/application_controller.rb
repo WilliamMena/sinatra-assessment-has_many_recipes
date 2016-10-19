@@ -10,13 +10,24 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
+
+  helpers do 
+    def logged_in?
+      !!current_user
+    end
+
+    def current_user
+      @current_user ||= User.find_by_id(session[:user_id])
+    end
+  end
+
   get '/' do 
     erb :index
   end
 
   get '/home' do
-    if Helper.logged_in?(session)
-      @user = Helper.current_user(session)
+    if logged_in?
+      @user = current_user
       @recipe = Recipe.all.sample
       erb :'/session/home'
     else
@@ -83,7 +94,7 @@ class ApplicationController < Sinatra::Base
 
   post '/follow' do
     f = User.find_by_id(params["follow_id"])
-    user = Helper.current_user(session)
+    user = current_user
     user.following << f
     Follower.last.save
     flash[:message] = "You're now following #{f.username}"
@@ -93,7 +104,7 @@ class ApplicationController < Sinatra::Base
 
   post '/unfollow' do
     host = User.find_by_id(params["unfollow_id"])
-    follower = Helper.current_user(session)
+    follower = current_user
     Follower.find_by(user_id: host.id, follower_id: follower.id).delete
     flash[:message] = "You've unfollowed #{host.username}"
 
