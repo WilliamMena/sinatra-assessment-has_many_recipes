@@ -1,5 +1,17 @@
 <h1><%= @recipe.name %></h1>
+
+<% if current_user == @recipe.user %>
+
+<a href="/recipes/<%= @recipe.id %>/edit">Edit this recipe</a>
+<br>
+<a href="/recipes/<%= @recipe.id %>/delete">Delete this recipe</a>
+
+<% else %>
+
 <p>Recipe by <a href="/users/<%= @recipe.user.slug %>"><%= @recipe.user.username %></a></p>
+
+<% end %>
+
 
 <h3>Serving Size</h3> <%= @recipe.serving_size %>
 
