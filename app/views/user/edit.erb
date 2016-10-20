@@ -1,0 +1,13 @@
+<h1><%= @user.username %> Edit</h1>
+
+<form action="/users/<%= @user.slug %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <h3>Bio</h3> 
+  <textarea name="bio" rows="4" cols="50"><%= @user.bio %></textarea>
+
+  <br></br>
+  <input type="submit" value="Submit new bio">
+
+
+</form>

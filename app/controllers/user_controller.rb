@@ -13,6 +13,24 @@ class UserController < ApplicationController
     erb :'/user/show'
   end
 
+  get '/users/:slug/edit' do
+    if current_user == User.find_by_slug(params[:slug])
+      @user = current_user
+      erb :'/user/edit'
+    else
+      redirect to '/users/:slug'
+      #Don't think that redirect will work. Might have to do <% params[:slug] %>
+    end
+  end
+
+  patch '/users/:slug' do
+    #User.find_by_slug(params[:slug]).update(bio: "My") --- Something along these lines SHOULD work
+    user = User.find_by_slug(params["slug"])
+    user.update(bio: params["bio"])
+    user.save
+    redirect to "/users/#{user.slug}"
+  end
+
   post '/follow' do
     f = User.find_by_id(params["follow_id"])
     user = current_user
