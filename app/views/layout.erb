@@ -7,6 +7,7 @@
   <style type="text/css">
     table {
       border-bottom: 1px solid black;
+      text-align: center;
     }
 
 
@@ -60,7 +61,7 @@
 
 
 
-  <% if Helper.logged_in?(session) %>
+  <% if logged_in? %>
     <table style="width:100%">
       <tr>
         <th><a href="/home">Home</a></th>
@@ -71,6 +72,18 @@
         <th><a href="/logout">Log Out</a></th>
       </tr>
     </table>
+
+  <% else %>
+    <table style="width:100%">
+      <tr>
+        <th><a href="/home">Home</a></th>
+        <th><a href="/categories">Category</a></th>
+        <th><a href="/recipes">Recipes</a></th>
+        <th><a href="/users">Users</a></th>
+        <th><a href="/login">Log In</a></th>
+      </tr>
+    </table>
+
   <% end %>
   </head>
   <body>

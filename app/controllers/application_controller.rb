@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
       @recipe = Recipe.all.sample
       erb :'/session/home'
     else
-      redirect to '/login'
+      erb :'/session/logged_off_home'
     end
   end
 
