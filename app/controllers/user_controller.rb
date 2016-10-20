@@ -31,6 +31,7 @@ class UserController < ApplicationController
     redirect to "/users/#{user.slug}"
   end
 
+
   post '/follow' do
     f = User.find_by_id(params["follow_id"])
     user = current_user
