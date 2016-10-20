@@ -38,7 +38,6 @@ class SessionController < ApplicationController
       session[:user_id] = user.id
       redirect to '/home'
     else
-      # "that username & password combination doesn't exist"
       flash[:message] = "That username and password combination doesn't exist."
       redirect to '/login'
     end

@@ -20,18 +20,23 @@ Category: <a href="/categories/<%= @recipe.category.name %>"><%= @recipe.categor
 </div>
 
 <div id="friend_list">
-  <h3>Follow List</h3>
+  <h3><a href="/follow_list">Follow List</a></h3>
 
   <% if @user.following.empty? %>
-    "You aren't following anyone at the moment"
+    You aren't following anyone at the moment
 
   <% else %>
-    <ul>
-    <% @user.following.each do |f| %>
-    <li><a href="/users/<%= f.slug %>"><%= f.username %></a></li>
+    Following <%= @user.following.count %> user(s)
+  <% end %>
 
-    <% end %>
-    </ul>
+
+  <% if @user.followers.empty? %>
+    <br></br>
+    No followers at at the moment
+
+  <% else %>
+    <br></br>
+    You have <%= @user.followers.count %> follower(s)
   <% end %>
 
 

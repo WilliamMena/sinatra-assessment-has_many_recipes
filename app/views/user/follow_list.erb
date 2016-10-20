@@ -1,0 +1,34 @@
+<div id="follow_list_title">
+  <h1>Your Follower List</h1>
+</div>
+
+
+<div id="follow_list_left">
+  <h3>People You Follow</h3> 
+  <% if !current_user.following.empty? %>
+      <% current_user.following.each do |f| %> 
+        <a href="users/<%= f.slug %>"><%= f.username %></a>
+        <br>
+      <% end %>
+  <% else %>
+    <p>You are currently not following anyone</p>
+
+  <% end %>
+
+</div>
+
+<div id="follow_list_right">
+  <h3>People Following You</h3>
+
+  <% if !current_user.followers.empty? %>
+      <% current_user.followers.each do |f| %> 
+        <a href="users/<%= f.slug %>"><%= f.username %></a>
+        <br>
+      <% end %>
+  <% else %>
+    <p>You currently have no followers</p>
+
+  <% end %>
+
+</div>
+
