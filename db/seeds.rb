@@ -21,5 +21,5 @@ r2.save
 
 # Change the ingredients inside of the strings below to scrape new recipes catered to you.
 Scraper.new(["eggs", "cheese", "bacon"]).scrape_food_network
-# Scraper.new(["onion", "pepper", "chicken"]).scrape_food_network
-# Scraper.new(["beef", "tomatoes", "cheese"]).scrape_food_network
+Scraper.new(["onion", "pepper", "chicken"]).scrape_food_network
+Scraper.new(["beef", "tomatoes", "cheese"]).scrape_food_network
