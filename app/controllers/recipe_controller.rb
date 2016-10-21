@@ -33,7 +33,7 @@ class RecipeController < ApplicationController
       r = Recipe.new
       r.name = params["name"]
       r.ingredients = params["ingredients"]
-      r.serving_size = params["serving_size"].to_i
+      r.serving_size = params["serving_size"]
       r.cook_time = params["cook_time"]
       r.directions = params["directions"]
 
@@ -49,6 +49,42 @@ class RecipeController < ApplicationController
     @recipe = Recipe.find_by_id(params[:id])
     erb :'/recipe/show'
   end
+
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+    if current_user == @recipe.user
+      erb :'/recipe/edit'
+    else
+      redirect to "/recipes/#{@recipe.id}"
+    end
+  end
+
+  patch '/recipes/:id' do
+    recipe = Recipe.find_by_id(params[:id])
+    recipe.name = params["name"]
+    recipe.ingredients = params["ingredients"]
+    recipe.serving_size = params["serving_size"]
+    recipe.cook_time = params["cook_time"]
+    recipe.save
+    redirect to "/recipes/#{recipe.id}"
+  end
+
+  get '/recipes/:id/delete' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :'/recipe/delete'
+  end
+
+  delete '/recipes/:id/delete' do
+    recipe = Recipe.find_by_id(params[:id])
+    recipe.delete
+    redirect to '/recipes'
+  end
+
+
+
+
+
+
 
 
 

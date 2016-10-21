@@ -19,11 +19,22 @@
 
 <h3>Ingredients</h3>
 <ul>
- <% @recipe.ingredients.split(",").each do |t| %>
-  <li><%= t.strip.capitalize %></li>
+<% if @recipe.user.username.include?("Food Network Scraper") %>
+  <% @recipe.ingredients.split("*-*-*").each do |t| %>
+    <li><%= t.strip.capitalize %></li>
+  <% end %>
+<% else %>
+
+  <% @recipe.ingredients.split(",").each do |t| %>
+    <li><%= t.strip.capitalize %></li>
+  <% end %>
 <% end %>
 </ul>
 
 <h3>Directions</h3>
   <p><%= @recipe.directions %></p>
+
+
+
+
 

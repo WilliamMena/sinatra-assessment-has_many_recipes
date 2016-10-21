@@ -49,6 +49,13 @@ class ApplicationController < Sinatra::Base
     erb :'/user/follow_list'
   end
 
+  def home_number_view
+    if @user.following.length <= 5
+      @user.following.length
+    else
+      5
+    end
+  end
 
 
 

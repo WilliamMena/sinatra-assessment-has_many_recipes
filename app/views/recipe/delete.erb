@@ -1,0 +1,8 @@
+<p>Are you sure you want to delete this recipe?</p>
+<form action="/recipes/<%= @recipe.id %>/delete" method="POST">
+  <input type="hidden" name="_method" id="hidden" value="delete">
+  <input type="submit" value="Yes">
+</form>
+<form action="/recipes/<%= @recipe.id %>">
+  <input type="submit" value="No">
+</form>
