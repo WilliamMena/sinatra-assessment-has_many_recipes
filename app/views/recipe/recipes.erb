@@ -1,6 +1,8 @@
-<h1>All Recipes</h1>
-<ul>
-<% @recipes.each do |r| %>
-  <li><a href="/recipes/<%= r.id %>"><%= r.name %></a></li>
-<% end %>
-</ul>
+<div id="view">
+  <h1>All Recipes</h1>
+  <ul>
+  <% @recipes.each do |r| %>
+    <li><a href="/recipes/<%= r.id %>"><%= r.name %></a></li>
+  <% end %>
+  </ul>
+</div>

@@ -1,6 +1,8 @@
-<h1>All Users</h1>
-<ul>
-  <% @users.each do |u| %>
-    <li><a href="/users/<%= u.slug %>"><%= u.username %></a></li>
-  <% end %>
-</ul>
+<div id="view">
+  <h1>All Users</h1>
+  <ul>
+    <% @users.each do |u| %>
+      <li><a href="/users/<%= u.slug %>"><%= u.username %></a></li>
+    <% end %>
+  </ul>
+</div>

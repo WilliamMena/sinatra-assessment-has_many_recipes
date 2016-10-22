@@ -1,13 +1,15 @@
-<h2>Choose from a category or one of the quick recipes</h2>
+<div id="view">
+  <h2>Choose from a category or one of the quick recipes</h2>
 
-<!-- Have the page show each category and under the recipe show 5 recipes under each category. -->
-<!-- Each category is a link that will direct to the specific category page -->
-<!-- Recipes under each category will be a link as well that will direct to the specific recipe page -->
+  <!-- Have the page show each category and under the recipe show 5 recipes under each category. -->
+  <!-- Each category is a link that will direct to the specific category page -->
+  <!-- Recipes under each category will be a link as well that will direct to the specific recipe page -->
 
-<% @categories.each do |c| %>
-  <ul style="list-style-type:none"><h3><a href="/categories/<%= c.slug %>"><%= c.name %></a></h3>
-    <% c.recipes.each do |r| %>
-      <li><a href="/recipes/<%= r.id %>"><%= r.name %></a></li>
-    <% end %>
-  </ul>
-<% end %>
+  <% @categories.each do |c| %>
+    <ul style="list-style-type:none"><h3><a href="/categories/<%= c.slug %>"><%= c.name %></a></h3>
+      <% c.recipes.each do |r| %>
+        <li><a href="/recipes/<%= r.id %>"><%= r.name %></a></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

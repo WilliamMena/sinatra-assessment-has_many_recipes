@@ -1,7 +1,9 @@
+<div id="recipe_view">
 <h1><%= @recipe.name %></h1>
 
 <% if current_user == @recipe.user %>
 
+<p>Your Recipe</p>
 <a href="/recipes/<%= @recipe.id %>/edit">Edit this recipe</a>
 <br>
 <a href="/recipes/<%= @recipe.id %>/delete">Delete this recipe</a>
@@ -13,9 +15,9 @@
 <% end %>
 
 
-<h3>Serving Size</h3> <%= @recipe.serving_size %>
+<h3>Serving Size</h3> <p><%= @recipe.serving_size %></p>
 
-<h3>Cook Time</h3> <%= @recipe.cook_time %>
+<h3>Cook Time</h3> <p><%= @recipe.cook_time %></p>
 
 <h3>Ingredients</h3>
 <ul>
@@ -37,4 +39,4 @@
 
 
 
-
+</div>
