@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <!--
      Williams Recipe App! :D
@@ -7,6 +7,10 @@
   <style type="text/css">
     table {
       border-bottom: 1px solid black;
+      text-align: center;
+    }
+
+    th {
       text-align: center;
     }
 
@@ -52,42 +56,57 @@
       text-align: center;
     }
 
+    /* unvisited link */ /* visited link */
+    a:link, a:visited {
+        color: #2980b9;
+    }
+
+    /* mouse over link */
+    a:hover {
+        color: #34495e;
+    }
+
+    /* selected link */
+    a:active {
+        color: #3498db;
+    }
 
     * {
       box-sizing: border-box;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
   </style>
 
+    <% if logged_in? %>
+      <table style="width:100%">
+        <tr>
+          <th><a href="/home">Home</a></th>
+          <th><a href="/categories">Category</a></th>
+          <th><a href="/recipes">Recipes</a></th>
+          <th><a href="/users">Users</a></th>
+          <th><a href="/recipes/new">New Recipe</a></th>
+          <th><a href="/logout">Log Out</a></th>
+        </tr>
+      </table>
 
+    <% else %>
+      <table style="width:100%">
+        <tr>
+          <th><a href="/home">Home</a></th>
+          <th><a href="/categories">Category</a></th>
+          <th><a href="/recipes">Recipes</a></th>
+          <th><a href="/users">Users</a></th>
+          <th><a href="/login">Log In</a></th>
+        </tr>
+      </table>
 
-  <% if logged_in? %>
-    <table style="width:100%">
-      <tr>
-        <th><a href="/home">Home</a></th>
-        <th><a href="/categories">Category</a></th>
-        <th><a href="/recipes">Recipes</a></th>
-        <th><a href="/users">Users</a></th>
-        <th><a href="/recipes/new">New Recipe</a></th>
-        <th><a href="/logout">Log Out</a></th>
-      </tr>
-    </table>
+    <% end %>
 
-  <% else %>
-    <table style="width:100%">
-      <tr>
-        <th><a href="/home">Home</a></th>
-        <th><a href="/categories">Category</a></th>
-        <th><a href="/recipes">Recipes</a></th>
-        <th><a href="/users">Users</a></th>
-        <th><a href="/login">Log In</a></th>
-      </tr>
-    </table>
-
-  <% end %>
   </head>
   <body>
     <%= yield %>
+
   </body>
 
 </html>
