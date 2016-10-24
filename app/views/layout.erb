@@ -4,185 +4,93 @@
     <!--
      Williams Recipe App! :D
   -->
-  <style type="text/css">
-    table {
-      border-bottom: 1px solid black;
-      text-align: center;
-    }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    th {
-      text-align: center;
-    }
+    <!-- Bootstrap -->
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/custom.css" rel="stylesheet">
+  </head>
 
-    html {
-      background-color: #ecf0f1;
-    }
-
-
-    #home_text {
-      float: left;
-      width: 66.66%;
-    }
-
-    #home_text_logoff {
-      text-align: center;
-    }
-
-    #random_recipe {
-      background-color: white;
-      float: right;
-      text-align: center;
-      right: 4%;
-      width: 33.33%;
-      padding: 2%;
-      border: 1px solid grey;
-      box-shadow: 0px 2px 3px #888888;
-    }
-
-    #friend_list {
-      background-color: white;
-      clear: right;
-      float: right;
-      text-align: center;
-      right: 4%;
-      width: 33.33%;
-      padding: 1%;
-      border: 1px solid grey;
-      box-shadow: 0px 2px 3px #888888;
-    }
-
-    #home_following_recipe {
-      background-color: white;
-      box-shadow: 0px 0px 3px #888888;
-      padding: 2%;
-      width: 99%
-    }
-
-    #follow_list_title {
-      text-align: center;
-    }
-
-
-    #follow_list_left {
-      float: left;
-      width: 50%;
-      text-align: center;
-    }
-
-    #follow_list_right {
-      float: right;
-      width: 50%;
-      text-align: center;
-    }
-
-    #recipe_view {
-      padding: 1%;
-    }
-
-    #recipe_view p {
-      text-indent: 20px;
-      font-size: 95%;
-    }
-
-    #view {
-      padding: 1%;
-    }
-
-    #view ul {
-      list-style-type: none;
-      columns: 2;
-    }
-
-    #view li {
-      width: 50%;
-    }
-
-    #view h2 {
-      font-size: 175%;
-    }
-
-    #view h3 {
-      font-size: 150%
-    }
-
-    #user_profile {
-      padding: 1%;
-    }
-
-    #user_profile ul {
-      columns: 2;
-      list-style-type: none;
-    }
-
-    #user_profile ul li {
-      border-left: 3px solid #34495e;
-      padding-left: 1%;
-    }
-
-    /* unvisited link */ /* visited link */
-    a:link, a:visited {
-        color: #2980b9;
-    }
-
-    /* mouse over link */
-    a:hover {
-        color: #34495e;
-    }
-
-    /* selected link */
-    a:active {
-        color: #3498db;
-    }
-
-    input[type=submit] {
-    padding:5px 15px; background:#ccc; border:0 none;
-    cursor:pointer;
-    border-radius: 5px; 
-
-    }
-
-    input[type=submit]:hover {
-    padding:5px 15px; background:#3498db; border:0 none;
-    cursor:pointer;
-    border-radius: 5px; 
-
-    }
-
-    * {
-      box-sizing: border-box;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-
-  </style>
-
+  <body>
     <% if logged_in? %>
-      <table style="width:100%">
-        <tr>
-          <th style="width:16.6%"><a href="/home">Home</a></th>
-          <th style="width:16.6%"><a href="/categories">Category</a></th>
-          <th style="width:16.6%"><a href="/recipes">Recipes</a></th>
-          <th style="width:16.6%"><a href="/users">Users</a></th>
-          <th style="width:16.6%"><a href="/recipes/new">New Recipe</a></th>
-          <th style="width:16.6%"><a href="/logout">Log Out</a></th>
-        </tr>
-      </table>
+
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/home">h_m_r</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="/home">Home</a></li>
+              <li><a href="/categories">Category</a></li>
+              <li><a href="/recipes">Recipes</a></li>
+              <li><a href="/users">Users</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/users/<%= current_user.slug %>">Profile</a></li>
+                  <li><a href="/follow_list">Follow List</a></li>
+                  <li><a href="/recipes/new">Create Recipe</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="/logout">Log Out</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
 
     <% else %>
-      <table style="width:100%">
-        <tr>
-          <th style="width: 20%"><a href="/home">Home</a></th>
-          <th style="width: 20%"><a href="/categories">Category</a></th>
-          <th style="width: 20%"><a href="/recipes">Recipes</a></th>
-          <th style="width: 20%"><a href="/users">Users</a></th>
-          <th style="width: 20%"><a href="/login">Log In</a></th>
-        </tr>
-      </table>
+
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/home">h_m_r</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="/home">Home</a></li>
+              <li><a href="/categories">Category</a></li>
+              <li><a href="/recipes">Recipes</a></li>
+              <li><a href="/users">Users</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/login">Log In</a></li>
+              <li><a href="/signup">Sign Up</a></li>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
 
     <% end %>
 
-  </head>
-  <body>
     <%= yield %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
   </body>
 

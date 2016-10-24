@@ -1,18 +1,22 @@
-<% if flash(:message) %>
-  <%= flash[:message] %>
-<% end %>
+<div id="logging">
+  <% if flash(:message) %>
+    <%= flash[:message] %>
+  <% end %>
 
-<h1>Log into my recipe app</h1>
+  <h1>Log into my recipe app</h1>
+  <br>
 
-<form method="POST" action="/login">
-  Username: <input type="text" name="username">
-  <br></br>
-  Password: <input type="password" name="password">
-  <br></br>
-  <input type="submit" value="Login">
+  <form method="POST" action="/login">
+    Username: <input type="text" name="username">
+    <br></br>
+    Password: <input type="password" name="password">
+    <br></br>
+    <input type="submit" value="Login">
 
 
 
-</form>
+  </form>
 
-<p>Don't have an account? <a href="/signup">Sign Up</a></p>
+  <br>
+  <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+</div>

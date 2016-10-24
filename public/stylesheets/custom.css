@@ -1,0 +1,175 @@
+table {
+      border-bottom: 1px solid black;
+      text-align: center;
+    }
+
+    th {
+      text-align: center;
+    }
+
+    html {
+      background-color: #ecf0f1;
+    }
+
+    #logging {
+      padding: 1%;
+    }
+
+
+    #home_text {
+      float: left;
+      width: 66.66%;
+      padding: 1%;
+    }
+
+    #home_text ul {
+      float: left;
+      width: 66.66%;
+    }
+
+    #home_text_logoff {
+      text-align: center;
+      padding: 2%;
+    }
+
+    #each_recipe {
+      border-bottom: thin solid #95a5a6;
+    }
+
+    #random_recipe {
+      background-color: white;
+      float: right;
+      text-align: center;
+      right: 4%;
+      width: 33.33%;
+      padding: 2%;
+      border: 1px solid grey;
+      box-shadow: -1px 2px 3px #888888;
+    }
+
+    #friend_list {
+      background-color: white;
+      clear: right;
+      float: right;
+      text-align: center;
+      right: 4%;
+      width: 33.33%;
+      padding: 1%;
+      border: 1px solid grey;
+      box-shadow: -1px 2px 3px #888888;
+    }
+
+    #home_following_recipe {
+      background-color: white;
+      box-shadow: -1px 2px 3px #888888;
+      padding: 2%;
+      width: 99%
+    }
+
+    #follow_list_title {
+      text-align: center;
+    }
+
+
+    #follow_list_left {
+      float: left;
+      width: 50%;
+      text-align: center;
+    }
+
+    #follow_list_right {
+      float: right;
+      width: 50%;
+      text-align: center;
+    }
+
+    #recipe_view {
+      padding: 1%;
+    }
+
+    #recipe_view h3 {
+      color: #2980b9;
+    }
+
+    #recipe_view p {
+      text-indent: 20px;
+      font-size: 95%;
+    }
+
+    #view {
+      padding: 1%;
+    }
+
+    #view ul {
+      list-style-type: none;
+      columns: 2;
+      border-bottom: thin solid #95a5a6;
+    }
+
+    #view li {
+      width: 50%;
+    }
+
+    #view h2 {
+      font-size: 175%;
+    }
+
+    #view h3 {
+      font-size: 150%
+    }
+
+    #users ul {
+      list-style-type: none;
+      columns: 2;
+    }
+
+    #user_profile ul {
+      columns: 2;
+      list-style-type: none;
+    }
+
+    #user_profile ul li {
+      border-left: 3px solid #34495e;
+      display: inline-block;
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+
+    #new_recipe, #user_profile, #users {
+      padding-left: 1%;
+      padding-bottom: 2%;
+    }
+
+    /* unvisited link */ /* visited link */
+    a:link, a:visited {
+        color: #2980b9;
+    }
+
+    /* mouse over link */
+    a:hover {
+        color: #34495e;
+    }
+
+    /* selected link */
+    a:active {
+        color: #3498db;
+    }
+
+    input[type=submit] {
+    padding:5px 15px; background:#ccc; border:0 none;
+    cursor:pointer;
+    border-radius: 5px; 
+
+    }
+
+    input[type=submit]:hover {
+    padding:5px 15px; background:#3498db; border:0 none;
+    cursor:pointer;
+    border-radius: 5px; 
+
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
